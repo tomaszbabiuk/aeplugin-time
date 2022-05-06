@@ -1,7 +1,6 @@
 # Welcome
 
-This is a plugin for [Automate-Everything](https://github.com/tomaszbabiuk/automate-everything).
-It provides "time-related" blocks for automations.
+This is a plugin for [Automate-Everything](https://github.com/tomaszbabiuk/automate-everything). It provides "time-related" blocks.
 
 # Directory setup
 ```bash
