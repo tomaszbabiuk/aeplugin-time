@@ -13,28 +13,16 @@
  *  limitations under the License.
  */
 
-package eu.automateeverything.aforeplugin
+package eu.automateeverything.timeplugin
 
-import eu.automateeverything.domain.extensibility.PluginMetadata
-import org.pf4j.PluginWrapper
-import eu.automateeverything.domain.hardware.HardwarePlugin
-import eu.automateeverything.domain.langateway.LanGatewayResolver
 import eu.automateeverything.data.localization.Resource
 import eu.automateeverything.data.plugins.PluginCategory
-import eu.automateeverything.domain.events.EventBus
-import eu.automateeverything.domain.hardware.HardwareAdapter
+import eu.automateeverything.domain.extensibility.PluginMetadata
+import org.pf4j.Plugin
+import org.pf4j.PluginWrapper
 
-class AforePlugin(
-    wrapper: PluginWrapper,
-    private val lanGatewayResolver: LanGatewayResolver,
-    private val eventBus: EventBus) : HardwarePlugin(wrapper), PluginMetadata {
-
-    override fun createAdapters(): List<HardwareAdapter<*>> {
-        val result = ArrayList<HardwareAdapter<*>>()
-        val adapter = AforeAdapter(pluginId, lanGatewayResolver, eventBus)
-        result.add(adapter)
-        return result
-    }
+class TimePlugin(
+    wrapper: PluginWrapper) : Plugin(wrapper), PluginMetadata {
 
     override fun start() {
     }
@@ -44,5 +32,5 @@ class AforePlugin(
 
     override val name: Resource = R.plugin_name
     override val description: Resource = R.plugin_description
-    override val category: PluginCategory = PluginCategory.Hardware
+    override val category: PluginCategory = PluginCategory.Objects
 }
