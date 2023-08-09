@@ -40,7 +40,13 @@ open class TodayBlockFactory: ValueBlockFactory {
         }
     }
 
-    override fun transform(block: Block, next: StatementNode?, context: AutomationContext, transformer: BlocklyTransformer): ValueNode {
+    override fun transform(
+        block: Block,
+        next: StatementNode?,
+        context: AutomationContext,
+        transformer: BlocklyTransformer,
+        order: Int
+    ): ValueNode {
         return TodayValueNode()
     }
 }

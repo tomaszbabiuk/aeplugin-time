@@ -213,7 +213,13 @@ open class TimeValueBlockFactory: ValueBlockFactory {
         }
     }
 
-    override fun transform(block: Block, next: StatementNode?, context: AutomationContext, transformer: BlocklyTransformer): ValueNode {
+    override fun transform(
+        block: Block,
+        next: StatementNode?,
+        context: AutomationContext,
+        transformer: BlocklyTransformer,
+        order: Int
+    ): ValueNode {
         if (block.fields == null || block.fields!!.size != 3) {
             throw MalformedBlockException(block.type, "should have exactly three <FIELDS> defined: HOUR, MINUTE and SECOND")
         }
