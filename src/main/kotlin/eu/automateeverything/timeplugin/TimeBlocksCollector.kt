@@ -24,25 +24,26 @@ import eu.automateeverything.domain.hardware.TimeStamp
 import org.pf4j.Extension
 
 @Extension
-class TimeBlocksCollector() : BlockFactoriesCollector {
+class TimeBlocksCollector : BlockFactoriesCollector {
 
     override fun collect(thisDevice: Configurable?): List<BlockFactory<*>> {
         return collectTimeStaticBlocks() + collectDayStaticBlocks()
     }
 
-    private fun collectTimeStaticBlocks() = listOf(
-        TimeValueBlockFactory(),
-        NowBlockFactory(),
-        ComparisonBlockFactory(TimeStamp::class.java, TimeBlockCategories.SecondOfDay),
-        EquationBlockFactory(TimeStamp::class.java, TimeBlockCategories.SecondOfDay),
-        EvenSecondBlockFactory()
-    )
+    private fun collectTimeStaticBlocks() =
+        listOf(
+            TimeValueBlockFactory(),
+            NowBlockFactory(),
+            ComparisonBlockFactory(TimeStamp::class.java, TimeBlockCategories.SecondOfDay),
+            EquationBlockFactory(TimeStamp::class.java, TimeBlockCategories.SecondOfDay),
+            EvenSecondBlockFactory()
+        )
 
-
-    private fun collectDayStaticBlocks() = listOf(
-        DayOfYearStampValueBlockFactory(),
-        TodayBlockFactory(),
-        ComparisonBlockFactory(DayOfYearStamp::class.java, TimeBlockCategories.DayOfYear),
-        EquationBlockFactory(DayOfYearStamp::class.java, TimeBlockCategories.DayOfYear)
-    )
+    private fun collectDayStaticBlocks() =
+        listOf(
+            DayOfYearStampValueBlockFactory(),
+            TodayBlockFactory(),
+            ComparisonBlockFactory(DayOfYearStamp::class.java, TimeBlockCategories.DayOfYear),
+            EquationBlockFactory(DayOfYearStamp::class.java, TimeBlockCategories.DayOfYear)
+        )
 }
