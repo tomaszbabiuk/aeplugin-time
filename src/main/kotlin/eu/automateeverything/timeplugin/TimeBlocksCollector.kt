@@ -26,7 +26,7 @@ import org.pf4j.Extension
 @Extension
 class TimeBlocksCollector : BlockFactoriesCollector {
 
-    override fun collect(thisDevice: Configurable?): List<BlockFactory<*>> {
+    override fun collect(thisDevice: Configurable): List<BlockFactory<*>> {
         return collectTimeStaticBlocks() + collectDayStaticBlocks()
     }
 
