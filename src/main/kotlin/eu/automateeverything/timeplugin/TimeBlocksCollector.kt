@@ -17,6 +17,7 @@ package eu.automateeverything.timeplugin
 
 import eu.automateeverything.domain.automation.BlockFactory
 import eu.automateeverything.domain.automation.blocks.BlockFactoriesCollector
+import eu.automateeverything.domain.automation.blocks.CollectionContext
 import eu.automateeverything.domain.automation.blocks.ComparisonBlockFactory
 import eu.automateeverything.domain.automation.blocks.EquationBlockFactory
 import eu.automateeverything.domain.configurable.Configurable
@@ -26,8 +27,15 @@ import org.pf4j.Extension
 @Extension
 class TimeBlocksCollector : BlockFactoriesCollector {
 
-    override fun collect(thisDevice: Configurable): List<BlockFactory<*>> {
-        return collectTimeStaticBlocks() + collectDayStaticBlocks()
+    override fun collect(
+        thisDevice: Configurable,
+        context: CollectionContext
+    ): List<BlockFactory<*>> {
+        if (context == CollectionContext.Automation) {
+            return collectTimeStaticBlocks() + collectDayStaticBlocks()
+        }
+
+        return listOf()
     }
 
     private fun collectTimeStaticBlocks() =
