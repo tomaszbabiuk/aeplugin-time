@@ -16,10 +16,7 @@
 package eu.automateeverything.timeplugin
 
 import eu.automateeverything.domain.automation.BlockFactory
-import eu.automateeverything.domain.automation.blocks.BlockFactoriesCollector
-import eu.automateeverything.domain.automation.blocks.CollectionContext
-import eu.automateeverything.domain.automation.blocks.ComparisonBlockFactory
-import eu.automateeverything.domain.automation.blocks.EquationBlockFactory
+import eu.automateeverything.domain.automation.blocks.*
 import eu.automateeverything.domain.configurable.Configurable
 import eu.automateeverything.domain.hardware.TimeStamp
 import org.pf4j.Extension
@@ -31,7 +28,7 @@ class TimeBlocksCollector : BlockFactoriesCollector {
         thisDevice: Configurable,
         instanceId: Long?,
         context: CollectionContext
-    ): List<BlockFactory<*>> {
+    ): List<BlockFactory<*, *>> {
         if (context == CollectionContext.Automation) {
             return collectTimeStaticBlocks() + collectDayStaticBlocks()
         }
