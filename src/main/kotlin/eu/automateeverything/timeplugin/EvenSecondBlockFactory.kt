@@ -19,7 +19,7 @@ import eu.automateeverything.data.blocks.RawJson
 import eu.automateeverything.domain.automation.*
 import eu.automateeverything.domain.automation.blocks.CommonBlockCategories
 
-open class EvenSecondBlockFactory: EvaluatorBlockFactory {
+open class EvenSecondBlockFactory : EvaluatorBlockFactory {
 
     override val category = TimeBlockCategories.SecondOfDay
 
@@ -37,7 +37,8 @@ open class EvenSecondBlockFactory: EvaluatorBlockFactory {
                   "tooltip": "",
                   "helpUrl": ""
                 }
-                """.trimIndent()
+                """
+                .trimIndent()
         }
     }
 
@@ -46,9 +47,7 @@ open class EvenSecondBlockFactory: EvaluatorBlockFactory {
         next: StatementNode?,
         context: AutomationContext,
         transformer: BlocklyTransformer,
-        order: Int
     ): EvaluatorNode {
         return EvenSecondValueNode()
     }
 }
-

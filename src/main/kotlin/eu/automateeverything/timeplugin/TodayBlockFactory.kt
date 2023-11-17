@@ -18,7 +18,7 @@ package eu.automateeverything.timeplugin
 import eu.automateeverything.data.blocks.RawJson
 import eu.automateeverything.domain.automation.*
 
-open class TodayBlockFactory: ValueBlockFactory {
+open class TodayBlockFactory : ValueBlockFactory {
 
     override val category = TimeBlockCategories.DayOfYear
 
@@ -36,7 +36,8 @@ open class TodayBlockFactory: ValueBlockFactory {
                   "tooltip": "",
                   "helpUrl": ""
                 }
-                """.trimIndent()
+                """
+                .trimIndent()
         }
     }
 
@@ -45,9 +46,7 @@ open class TodayBlockFactory: ValueBlockFactory {
         next: StatementNode?,
         context: AutomationContext,
         transformer: BlocklyTransformer,
-        order: Int
     ): ValueNode {
         return TodayValueNode()
     }
 }
-

@@ -19,7 +19,7 @@ import eu.automateeverything.data.blocks.RawJson
 import eu.automateeverything.domain.automation.*
 import eu.automateeverything.domain.hardware.TimeStamp
 
-open class NowBlockFactory: ValueBlockFactory {
+open class NowBlockFactory : ValueBlockFactory {
 
     override val category = TimeBlockCategories.SecondOfDay
 
@@ -37,7 +37,8 @@ open class NowBlockFactory: ValueBlockFactory {
                   "tooltip": "",
                   "helpUrl": ""
                 }
-                """.trimIndent()
+                """
+                .trimIndent()
         }
     }
 
@@ -46,9 +47,7 @@ open class NowBlockFactory: ValueBlockFactory {
         next: StatementNode?,
         context: AutomationContext,
         transformer: BlocklyTransformer,
-        order: Int
     ): ValueNode {
         return NowValueNode()
     }
 }
-
