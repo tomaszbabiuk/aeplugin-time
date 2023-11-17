@@ -28,7 +28,7 @@ class TimeBlocksCollector : BlockFactoriesCollector {
         thisDevice: Configurable,
         instanceId: Long?,
         context: CollectionContext
-    ): List<BlockFactory<*, *>> {
+    ): List<BlockFactory<*, *, *>> {
         if (context == CollectionContext.Automation) {
             return collectTimeStaticBlocks() + collectDayStaticBlocks()
         }
